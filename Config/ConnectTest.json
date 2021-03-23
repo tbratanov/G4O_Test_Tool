@@ -1,0 +1,28 @@
+[{
+    "name":"G4OTestTool",
+    "title":"G4O Test Tool",
+    "type": "window",
+    "ignoreSavedLayout": true,
+    "details":{
+        "url":"http://localhost:4444/index.html",
+        "mode": "html",
+        "top": 200,
+        "left": 200,
+        "minWidth": 500,
+        "minHeight": 500,
+        "maxWidth": 500,
+        "maxHeight": 500
+    }
+},
+{
+    "name": "sendDataToExcel",
+    "title": "Export Data To Excel",
+    "type": "window",
+    "hidden": true,
+    "ignoreSavedLayout": true,
+    "details": {
+        "url": "http://localhost:4444/Excel-Connector-Test-Tool/Export-Data-To-Excel/index.html",
+        "mode": "tab"
+    }
+}
+]

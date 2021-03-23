@@ -1,0 +1,69 @@
+body {
+    background-color: #202020;
+}
+
+#Excel-Test-Tool {
+    background-image: url('../images/excel.png');
+}
+#Word-Test-Tool {
+    background-image: url('../Images/word.png');
+}
+#Outlook-Test-Tool {
+    background-image: url('../Images/outlook.png');
+}
+
+#excelStatusButton {
+    background-image: url('../Images/checkExcelStatus.png');
+}
+#subscribeExcelStatus {
+    text-indent: 3px;
+    background-image: url('../Images/subscribeExcelStatus.png');
+}
+#sendDataToExcel {
+    background-image: url('../Images/exportDataToExcel.png');
+}
+
+#home {
+    background-image: url('../Images/home.png');
+    position: relative;
+    top:25% 
+}
+
+#home:hover {
+    background-color: #8a4137;
+}
+#SelectTool {
+    color: #fff;
+    text-align: center;
+    margin-top: 3%;
+}
+
+.buttonDiv {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 400px;
+    height: 400px;
+    border:1px solid #fff;
+}
+
+.buttons {
+    margin: auto;
+    margin-top: 3px;
+    position: relative;
+    display: block;
+    top: 10%;
+    width: 200px;
+    height: 50px;
+    border-radius: 6px;
+    background-color: #202020;
+    color: #D3D3D3;
+}
+
+.buttons:hover {
+    background-color: #545454;
+    color: #fff
+}
