@@ -35,23 +35,59 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 // Functions to button assignments
 function handleDOMReady() {
-    // const excelTestToolButton = document.getElementById("Excel-Test-Tool");
-    // excelTestToolButton.addEventListener("click", goToExcelTool)
+    const sendToExcel = document.getElementById("sendToExcel");
+    sendToExcel.addEventListener("click", openSheet);
+
 }
 
-var data = [
-  ['', 'Ford', 'Tesla', 'Toyota', 'Honda'],
-  ['2017', 10, 11, 12, 13],
-  ['2018', 20, 11, 14, 13],
-  ['2019', 30, 15, 12, 13]
-];
+const openOptions = {
+  columnConfig: [
+    { header: "Symbol", fieldName: "symbol" },
+    { header: "Price", fieldName: "price" },
+    {header: "Name", fieldName: "name"}
+  ],
+  data: [
+    { price: 120.23, symbol: "AAPL",  name: "Apple Inc." },
+    { price: 208.3, symbol: "GME", name: "GameStop Corp." },
+    { price: 0.0529, symbol: "DOGE-USD", name: "Dogecoin USD" },
+    { price: 83.73, symbol: "BMW.DE", name: "BMW" }
+  ],
+  options: {
+    workbook: "testWorkBook",
+    worksheet: "testWorkSheet"
+  }
+};
 
-var container = document.getElementById('example');
-var hot = new Handsontable(container, {
-  data: data,
-  rowHeaders: true,
-  colHeaders: true,
-  filters: true,
-  dropdownMenu: true
-});
-  
+
+function openSheet() {
+  g4o.excel.openSheet(openOptions)
+  .then(sheet => {
+    sheet.onChanged(
+      (returnedData, errorCB, doneCB, delta) => {
+        errorCB((a) => {
+          console.log(a)
+        })
+        doneCB(() => {
+          g4o.excel.ready()
+        })
+        document.getElementById("A1").innerHTML = returnedData[0].symbol;
+        document.getElementById("B1").innerHTML = returnedData[0].price;
+        document.getElementById("C1").innerHTML = returnedData[0].name;
+
+        document.getElementById("A2").innerHTML = returnedData[1].symbol;
+        document.getElementById("B2").innerHTML = returnedData[1].price;
+        document.getElementById("C2").innerHTML = returnedData[1].name;
+
+        document.getElementById("A3").innerHTML = returnedData[2].symbol;
+        document.getElementById("B3").innerHTML = returnedData[2].price;
+        document.getElementById("C3").innerHTML = returnedData[2].name;
+
+        document.getElementById("A4").innerHTML = returnedData[3].symbol;
+        document.getElementById("B4").innerHTML = returnedData[3].price;
+        document.getElementById("C4").innerHTML = returnedData[3].name;
+      }
+    )
+  })
+}
+
+
