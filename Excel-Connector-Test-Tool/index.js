@@ -46,6 +46,8 @@ function handleDOMReady() {
   const homeButton = document.getElementById("home");
   homeButton.addEventListener("click", goHome);
 
+  const startExcelJPM = document.getElementById("startExcelJPM");
+  startExcelJPM.addEventListener("click", startExcelJPMfunc)
 };
 
 // Functions
@@ -73,11 +75,23 @@ function openExportToExcelWindow () {
   let myWin = glue.windows.my();
 
   glue.appManager.application("sendDataToExcel").start({}, {
-    height: 400,
-    width: 400,
+    height: 320,
+    width: 450,
+    maxHeight: 320,
+    maxWidth: 450,
     left: myWin.bounds.left+50,
     top: myWin.bounds.top+50
   }) 
+}
+
+function startExcelJPMfunc () {
+  let excelApp = glue.appManager.application("excel")
+
+  if(excelApp != null) {
+    excepApp.start()
+  } else {
+    window.alert("Excel App is not detected." + "<br>" + "Check ENV/REG!")
+  }
 }
 
 function goHome() {

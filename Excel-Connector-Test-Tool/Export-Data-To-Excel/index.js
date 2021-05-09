@@ -43,8 +43,8 @@ function handleDOMReady() {
 const openOptions = {
   columnConfig: [
     { header: "Symbol", fieldName: "symbol" },
-    { header: "Price", fieldName: "price" },
-    {header: "Name", fieldName: "name"}
+    { header: "Price", fieldName: "price", validation: {type: "Decimal", alert: "Warning"} },
+    { header: "Name", fieldName: "name" }
   ],
   data: [
     { price: 120.23, symbol: "AAPL",  name: "Apple Inc." },
@@ -56,38 +56,35 @@ const openOptions = {
     workbook: "testWorkBook",
     worksheet: "testWorkSheet"
   }
-};
-
+}
 
 function openSheet() {
   g4o.excel.openSheet(openOptions)
   .then(sheet => {
     sheet.onChanged(
-      (returnedData, errorCB, doneCB, delta) => {
-        errorCB((a) => {
-          console.log(a)
+      (returnedData, validationError, doneCB, delta) => {
+        validationError((a) => {
+          console.log(a.description)
         })
         doneCB(() => {
           g4o.excel.ready()
         })
-        document.getElementById("A1").innerHTML = returnedData[0].symbol;
-        document.getElementById("B1").innerHTML = returnedData[0].price;
-        document.getElementById("C1").innerHTML = returnedData[0].name;
+        document.getElementById("A2").innerHTML = returnedData[0].symbol;
+        document.getElementById("B2").innerHTML = returnedData[0].price;
+        document.getElementById("C2").innerHTML = returnedData[0].name;
 
-        document.getElementById("A2").innerHTML = returnedData[1].symbol;
-        document.getElementById("B2").innerHTML = returnedData[1].price;
-        document.getElementById("C2").innerHTML = returnedData[1].name;
+        document.getElementById("A3").innerHTML = returnedData[1].symbol;
+        document.getElementById("B3").innerHTML = returnedData[1].price;
+        document.getElementById("C3").innerHTML = returnedData[1].name;
 
-        document.getElementById("A3").innerHTML = returnedData[2].symbol;
-        document.getElementById("B3").innerHTML = returnedData[2].price;
-        document.getElementById("C3").innerHTML = returnedData[2].name;
+        document.getElementById("A4").innerHTML = returnedData[2].symbol;
+        document.getElementById("B4").innerHTML = returnedData[2].price;
+        document.getElementById("C4").innerHTML = returnedData[2].name;
 
-        document.getElementById("A4").innerHTML = returnedData[3].symbol;
-        document.getElementById("B4").innerHTML = returnedData[3].price;
-        document.getElementById("C4").innerHTML = returnedData[3].name;
+        document.getElementById("A5").innerHTML = returnedData[3].symbol;
+        document.getElementById("B5").innerHTML = returnedData[3].price;
+        document.getElementById("C5").innerHTML = returnedData[3].name;
       }
     )
   })
 }
-
-

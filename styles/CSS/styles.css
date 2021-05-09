@@ -2,6 +2,12 @@ body {
     background-color: #202020;
 }
 
+#startExcelJPM {
+    background-image: url('../images/excel.png');
+}
+#startWordJPM{
+    background-image: url('../Images/word.png');
+}
 #Excel-Test-Tool {
     background-image: url('../images/excel.png');
 }
@@ -20,6 +26,17 @@ body {
     background-image: url('../Images/subscribeExcelStatus.png');
 }
 #sendDataToExcel {
+    background-image: url('../Images/exportDataToExcel.png');
+}
+
+#wordStatusButton {
+    background-image: url('../Images/checkExcelStatus.png');
+}
+#subscribeWordStatus {
+    text-indent: 3px;
+    background-image: url('../Images/subscribeExcelStatus.png');
+}
+#sendDataToWord {
     background-image: url('../Images/exportDataToExcel.png');
 }
 

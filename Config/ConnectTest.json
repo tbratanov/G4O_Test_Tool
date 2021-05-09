@@ -24,5 +24,16 @@
         "url": "http://localhost:4444/Excel-Connector-Test-Tool/Export-Data-To-Excel/index.html",
         "mode": "tab"
     }
+},
+{
+    "name": "sendDataToWord",
+    "title": "Export Data To Word",
+    "type": "window",
+    "hidden": true,
+    "ignoreSavedLayout": true,
+    "details": {
+        "url": "http://localhost:4444/Word-Connector-Test-Tool/Export-Data-To-Word/index.html",
+        "mode": "tab"
+    }
 }
 ]
