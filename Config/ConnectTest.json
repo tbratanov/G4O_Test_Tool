@@ -35,5 +35,27 @@
         "url": "http://localhost:4444/Word-Connector-Test-Tool/Export-Data-To-Word/index.html",
         "mode": "tab"
     }
+},
+{
+    "name": "sendEmail",
+    "title": "Export Data To Word",
+    "type": "window",
+    "hidden": true,
+    "ignoreSavedLayout": true,
+    "details": {
+        "url": "http://localhost:4444/Outlook-Connector-Test-Tool/sendEmail/index.html",
+        "mode": "tab"
+    }
+},
+{
+    "name": "checkEmails",
+    "title": "Export Data To Word",
+    "type": "window",
+    "hidden": true,
+    "ignoreSavedLayout": true,
+    "details": {
+        "url": "http://localhost:4444/Outlook-Connector-Test-Tool/checkEmail/index.html",
+        "mode": "tab"
+    }
 }
 ]

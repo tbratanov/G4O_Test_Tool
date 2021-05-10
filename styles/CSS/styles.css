@@ -18,6 +18,23 @@ body {
     background-image: url('../Images/outlook.png');
 }
 
+#outlookStatusButton { 
+    background-image: url('../Images/checkExcelStatus.png');
+}
+
+#subscribeOutlookStatus {
+    text-indent: 4px;
+    background-image: url('../Images/subscribeExcelStatus.png');
+}
+
+#sendEmail {
+    background-image: url('../Images/sendEmail.png');
+}
+
+#CheckEmailFolder {
+    background-image: url('../Images/checkEmails.png');
+}
+
 #excelStatusButton {
     background-image: url('../Images/checkExcelStatus.png');
 }
