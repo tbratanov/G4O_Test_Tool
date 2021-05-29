@@ -35,15 +35,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 // Functions to button assignments
 function handleDOMReady() {
-    // const sendToExcel = document.getElementById("sendToExcel");
-    // sendToExcel.addEventListener("click", openSheet);
-    const sendEmail = document.getElementById("sendEmail");
-    sendEmail.addEventListener("click", sendEmailFunc)
+    const sendAppointment = document.getElementById("sendAppointment");
+    sendAppointment.addEventListener("click", sendAppointmentFunc)
 };
 
-function sendEmailFunc () {
-    let recipientsTo = document.getElementById("recipientTo").value;
-    let recipientsCC = document.getElementById("recipientCC").value;
+function sendAppointmentFunc () {
+    let priority = document.getElementById("priority").value;
+    let dueDate = document.getElementById("dueDate").value;
     let subject = document.getElementById("subject").value;
     let body = document.getElementById("body").value;
     let attachment;
@@ -52,22 +50,24 @@ function sendEmailFunc () {
         attachment = document.getElementById("attachment").files[0].path;
     };
 
-    g4o.outlook.newEmail({
+    g4o.outlook
+    .newTask(
+      {
         subject: subject,
-        to: recipientsTo,
-        cc: recipientsCC,
         body: body,
+        priority: priority,
+        dueDate: new Date(dueDate),
         attachments: ["", attachment]
-    },
-    {
-        onSent: email => {
-            email
+      },
+      {
+        onSaved: task => {
+          task
             .show()
             .then(ids => console.log(ids))
-            .catch(console.error)
+            .catch(console.error);
         }
-    })
+      }
+    )
     .then(console.log)
-    .catch(console.error)
-
+    .catch(console.error);
 }; 

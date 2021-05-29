@@ -43,6 +43,9 @@ function handleDOMReady() {
   const sendEmail = document.getElementById("sendEmail");
   sendEmail.addEventListener("click", sendEmailFunc);
 
+  const sendAppointment = document.getElementById("sendAppointment");
+  sendAppointment.addEventListener("click", sendAppointmentFunc);
+
   const homeButton = document.getElementById("home");
   homeButton.addEventListener("click", goHome);
 
@@ -68,6 +71,20 @@ function subscribeOutlookStatusEvent() {
   })
 };
 
+function sendAppointmentFunc () {
+  let myWin = glue.windows.my();
+
+  glue.appManager.application("sendAppointment").start({}, {
+    height: 410,
+    width: 400,
+    maxHeight: 410,
+    maxWidth: 400,
+    left: myWin.bounds.left+50,
+    top: myWin.bounds.top+50
+  })
+
+};
+
 function sendEmailFunc () {
   let myWin = glue.windows.my();
 
@@ -79,8 +96,8 @@ function sendEmailFunc () {
     left: myWin.bounds.left+50,
     top: myWin.bounds.top+50
   }) 
-}
+};
 
 function goHome() {
   window.location.href="../index.html"
-}
+};

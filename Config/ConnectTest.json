@@ -38,12 +38,23 @@
 },
 {
     "name": "sendEmail",
-    "title": "Export Data To Word",
+    "title": "Send an Email",
     "type": "window",
     "hidden": true,
     "ignoreSavedLayout": true,
     "details": {
         "url": "http://localhost:4444/Outlook-Connector-Test-Tool/sendEmail/index.html",
+        "mode": "tab"
+    }
+},
+{
+    "name": "sendAppointment",
+    "title": "Make an appointment",
+    "type": "window",
+    "hidden": true, 
+    "ignoreSavedLayout": true,
+    "details": {
+        "url": "http://localhost:4444/Outlook-Connector-Test-Tool/sendAppointment/index.html",
         "mode": "tab"
     }
 },
