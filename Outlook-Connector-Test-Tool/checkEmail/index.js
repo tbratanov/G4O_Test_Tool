@@ -39,6 +39,9 @@ function handleDOMReady() {
     subButton.addEventListener("click", emailReceivedFunc)
 };
 
+
+
+
 function emailReceivedFunc () {
     const body = document.getElementsByTagName('body')[0]
 
@@ -64,6 +67,24 @@ function emailReceivedFunc () {
         email.appendChild(timeAndDate)
         timeAndDate.appendChild(document.createTextNode(receivedEmail.date))
 
-        console.log("success!")
+        let emailBodyButton = document.createElement('button')
+        emailBodyButton.className = 'collapsible'
+        emailBodyButton.type = 'button'
+        emailBodyButton.appendChild(document.createTextNode("Expand:"))
+        email.appendChild(emailBodyButton)
+        emailBodyButton.onclick = function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+                if (content.style.display === "block") {
+                    content.style.display = "none";
+                } else {
+                    content.style.display = "block";
+                }
+            }
+        let emailBody = document.createElement('div')
+        emailBody.className = 'content'
+        email.appendChild(emailBody)
+        emailBody.appendChild(document.createTextNode(receivedEmail.body))
+        console.log(receivedEmail)
     })
 };
