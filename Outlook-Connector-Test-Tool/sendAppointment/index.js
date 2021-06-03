@@ -50,15 +50,19 @@ function sendAppointmentFunc () {
         attachment = document.getElementById("attachment").files[0].path;
     };
 
+    let args = {
+      subject: subject,
+      body: body,
+      priority: priority,
+      dueDate: new Date(dueDate),
+      attachments: [attachment]
+    }
+
+    console.log(args)
+
     g4o.outlook
     .newTask(
-      {
-        subject: subject,
-        body: body,
-        priority: priority,
-        dueDate: new Date(dueDate),
-        attachments: ["", attachment]
-      },
+      args,
       {
         onSaved: task => {
           task
