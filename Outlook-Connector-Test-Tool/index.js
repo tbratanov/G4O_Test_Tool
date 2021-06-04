@@ -2,7 +2,7 @@
 Glue().then(glue => {
     window.glue = glue;
     handleGlueReady();
-}).catch(console.error)
+}).catch(console.error);
 
 const g4oConfig = {
     application: "MS Office Interop",
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 // Functions to button assignments
 function handleDOMReady() {
   const outlookStatusButton = document.getElementById("outlookStatusButton");
-  outlookStatusButton.addEventListener("click", checkOutlookStatus)
+  outlookStatusButton.addEventListener("click", checkOutlookStatus);
 
   const subscribeOutlookStatus = document.getElementById("subscribeOutlookStatus");
   subscribeOutlookStatus.addEventListener("click", subscribeOutlookStatusEvent);
@@ -84,7 +84,7 @@ function sendAppointmentFunc () {
     maxWidth: 400,
     left: myWin.bounds.left+50,
     top: myWin.bounds.top+50
-  })
+  });
 
 };
 
@@ -98,8 +98,8 @@ function checkEmailsFunc () {
     maxWidth: 400,
     left: myWin.bounds.left+50,
     top: myWin.bounds.top+50
-  }) 
-}
+  });
+};
 
 function sendEmailFunc () {
   let myWin = glue.windows.my();
@@ -111,7 +111,7 @@ function sendEmailFunc () {
     maxWidth: 400,
     left: myWin.bounds.left+50,
     top: myWin.bounds.top+50
-  }) 
+  });
 };
 
 function goHome() {

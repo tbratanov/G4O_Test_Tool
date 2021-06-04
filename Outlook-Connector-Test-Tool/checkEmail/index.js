@@ -2,7 +2,7 @@
 Glue().then(glue => {
     window.glue = glue;
     handleGlueReady();
-}).catch(console.error)
+}).catch(console.error);
 
 const g4oConfig = {
     application: "MS Office Interop",
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 // Functions to button assignments
 function handleDOMReady() {
     const subButton = document.getElementById("Sub");
-    subButton.addEventListener("click", emailReceivedFunc)
+    subButton.addEventListener("click", emailReceivedFunc);
 };
 
 
@@ -86,5 +86,5 @@ function emailReceivedFunc () {
         email.appendChild(emailBody)
         emailBody.appendChild(document.createTextNode(receivedEmail.body))
         console.log(receivedEmail)
-    })
+    });
 };

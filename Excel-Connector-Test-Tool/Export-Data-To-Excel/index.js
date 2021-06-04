@@ -2,7 +2,7 @@
 Glue().then(glue => {
     window.glue = glue;
     handleGlueReady();
-}).catch(console.error)
+}).catch(console.error);
 
 const g4oConfig = {
     application: "MS Office Interop",
@@ -24,7 +24,7 @@ function handleGlueReady() {
 };
 
 function handleG4oReady () {
-    console.log('g4o version:', g4o.version)
+    console.log('g4o version:', g4o.version);
 };
 
 // eventListener to ensure that functions are executed once domContent is loaded
@@ -38,7 +38,7 @@ function handleDOMReady() {
     const sendToExcel = document.getElementById("sendToExcel");
     sendToExcel.addEventListener("click", openSheet);
 
-}
+};
 
 const openOptions = {
   columnConfig: [
@@ -56,7 +56,7 @@ const openOptions = {
     workbook: "testWorkBook",
     worksheet: "testWorkSheet"
   }
-}
+};
 
 function openSheet() {
   g4o.excel.openSheet(openOptions)
@@ -86,5 +86,5 @@ function openSheet() {
         document.getElementById("C5").innerHTML = returnedData[3].name;
       }
     )
-  })
-}
+  });
+};

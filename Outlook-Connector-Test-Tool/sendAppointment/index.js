@@ -2,7 +2,7 @@
 Glue().then(glue => {
     window.glue = glue;
     handleGlueReady();
-}).catch(console.error)
+}).catch(console.error);
 
 const g4oConfig = {
     application: "MS Office Interop",
@@ -47,16 +47,17 @@ function sendAppointmentFunc () {
     let attachment;
 
     if(document.getElementById("attachment").value != "") {
-        attachment = document.getElementById("attachment").files[0].path;
+      attachment = document.getElementById("attachment").files[0].path;
+    } else {
+      attachment = "";
     };
 
     let args = {
       subject: subject,
       body: body,
       priority: priority,
-      dueDate: new Date(dueDate),
-      attachments: [attachment]
-    }
+      dueDate: new Date(dueDate)
+    };
 
     console.log(args)
 
@@ -67,7 +68,10 @@ function sendAppointmentFunc () {
         onSaved: task => {
           task
             .show()
-            .then(ids => console.log(ids))
+            .then((ids) => {
+            console.log(ids)
+            alert("Item Created")
+            })
             .catch(console.error);
         }
       }

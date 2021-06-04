@@ -2,7 +2,7 @@
 Glue().then(glue => {
     window.glue = glue;
     handleGlueReady();
-}).catch(console.error)
+}).catch(console.error);
 
 const g4oConfig = {
     application: "MS Office Interop",
@@ -24,7 +24,7 @@ function handleGlueReady() {
 };
 
 function handleG4oReady () {
-    console.log('g4o version:', g4o.version)
+    console.log('g4o version:', g4o.version);
 };
 
 // eventListener to ensure that functions are executed once domContent is loaded
@@ -38,7 +38,7 @@ function handleDOMReady() {
     // const sendToExcel = document.getElementById("sendToExcel");
     // sendToExcel.addEventListener("click", openSheet);
     const sendEmail = document.getElementById("sendEmail");
-    sendEmail.addEventListener("click", sendEmailFunc)
+    sendEmail.addEventListener("click", sendEmailFunc);
 };
 
 function sendEmailFunc () {
@@ -50,6 +50,8 @@ function sendEmailFunc () {
 
     if(document.getElementById("attachment").value != "") {
         attachment = document.getElementById("attachment").files[0].path;
+    } else {
+        attachment = "";
     };
 
     g4o.outlook.newEmail({
@@ -57,17 +59,19 @@ function sendEmailFunc () {
         to: recipientsTo,
         cc: recipientsCC,
         body: body,
-        attachments: ["", attachment]
+        attachments: [attachment]
     },
     {
         onSent: email => {
             email
             .show()
-            .then(ids => console.log(ids))
+            .then((ids) => {
+                console.log(ids)
+                alert("Email sent!")
+            })
             .catch(console.error)
         }
     })
     .then(console.log)
-    .catch(console.error)
-
+    .catch(console.error);
 }; 

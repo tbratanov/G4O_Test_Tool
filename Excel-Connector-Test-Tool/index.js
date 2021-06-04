@@ -2,7 +2,7 @@
 Glue().then(glue => {
     window.glue = glue;
     handleGlueReady();
-}).catch(console.error)
+}).catch(console.error);
 
 const g4oConfig = {
     application: "MS Office Interop",
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 // Functions to button assignments
 function handleDOMReady() {
   const excelStatusButton = document.getElementById("excelStatusButton");
-  excelStatusButton.addEventListener("click", checkExcelStatus)
+  excelStatusButton.addEventListener("click", checkExcelStatus);
 
   const subscribeExcelStatus = document.getElementById("subscribeExcelStatus");
   subscribeExcelStatus.addEventListener("click", subscribeExcelStatusEvent);
@@ -47,7 +47,7 @@ function handleDOMReady() {
   homeButton.addEventListener("click", goHome);
 
   const startExcelJPM = document.getElementById("startExcelJPM");
-  startExcelJPM.addEventListener("click", startExcelJPMfunc)
+  startExcelJPM.addEventListener("click", startExcelJPMfunc);
 };
 
 // Functions
@@ -67,7 +67,7 @@ function subscribeExcelStatusEvent() {
     } else {
       window.alert("Excel has been disconnected!")
     }
-  })
+  });
 };
 
 function openExportToExcelWindow () {
@@ -81,8 +81,8 @@ function openExportToExcelWindow () {
     maxWidth: 450,
     left: myWin.bounds.left+50,
     top: myWin.bounds.top+50
-  }) 
-}
+  });
+};
 
 function startExcelJPMfunc () {
   let excelApp = glue.appManager.application("excel")
@@ -92,8 +92,8 @@ function startExcelJPMfunc () {
   } else {
     window.alert("Excel App is not detected." + "<br>" + "Check ENV/REG!")
   }
-}
+};
 
 function goHome() {
   window.location.href="../index.html"
-}
+};
