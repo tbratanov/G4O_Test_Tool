@@ -62,7 +62,7 @@ function checkwordStatus() {
 
 function subscribeWordStatusEvent() {
   window.alert("Subscribed to word onAddinStatusChanged()")
-  g4o.word.onAddinStatusChanged(connected => {
+  g4o.word.onAddinStatusChanged(({connected}) => {
     if(connected) {
       window.alert("Word has been connected!")
     } else {

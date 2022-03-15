@@ -59,15 +59,15 @@ function checkOutlookStatus() {
   if(g4o.outlook.addinStatus === true) {
     window.alert("Outlook is connected!")
   } else {
-    window.alert("Outlook is not conected!")
+    window.alert("Outlook is not connected!")
   }
 };
 
 function subscribeOutlookStatusEvent() {
   window.alert("Subscribed to Outlook onAddinStatusChanged()")
-  g4o.outlook.onAddinStatusChanged(connected => {
+  g4o.outlook.onAddinStatusChanged(({ connected }) => {
     if(connected) {
-      window.alert("Outlook has been connected!")
+      window.alert(`Outlook has been connected!`)
     } else {
       window.alert("Outlook has been disconnected!")
     }
